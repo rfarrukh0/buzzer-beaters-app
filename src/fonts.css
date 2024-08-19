@@ -1,11 +1,17 @@
 @font-face {
-    font-family: 'Solanel Black';
-    src: url('./assets/fonts/solanel-black.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  body {
-    font-family: 'Solanel Black', sans-serif;
-  }
-  
+  font-family: 'Solanel Black';
+  src: url('./assets/fonts/solanel-black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Solanel Medium';
+  src: url('./assets/fonts/solanel-medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Solanel Black', sans-serif;
+}

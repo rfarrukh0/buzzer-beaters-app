@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 function Home({ data }) {
@@ -6,6 +7,7 @@ function Home({ data }) {
 
   // get season
   const currentSeason = Object.keys(data).sort((a, b) => b - a)[0];
+  const [daysWithoutBuzzerBeaters, setDaysWithoutBuzzerBeaters] = useState(0);
   
   // #bb in szn
   const totalBuzzerBeaters = data[currentSeason] ? data[currentSeason].length : 0;
@@ -42,8 +44,17 @@ function Home({ data }) {
     };
 
     requestAnimationFrame(animateCounter);
-  }, [totalBuzzerBeaters]);
-  
+
+    // days since last bb
+    if (data[currentSeason] && data[currentSeason].length > 0) {
+      const mostRecentGameDate = new Date(data[currentSeason][0].game);
+      const today = new Date();
+      const timeDiff = Math.abs(today - mostRecentGameDate);
+      const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+      setDaysWithoutBuzzerBeaters(daysDiff);
+    }
+  }, [totalBuzzerBeaters, data, currentSeason]);
+    
   return (
     <div className="home">
       <div className="counter-box">
@@ -54,8 +65,22 @@ function Home({ data }) {
           </p>
         </div>
       </div>
+      <div className="days-counter">
+        <div className="days-text">
+          <p>DAYS</p>
+          <span className="days-count">{daysWithoutBuzzerBeaters}</span>
+        </div>
+        <p className="days-without">WITHOUT<br />BUZZER BEATERS</p>
+      </div>
+      <div className="more-stats-button-container">
+        <Link to="/stats" className="more-stats-button">
+          MORE STATS
+        </Link>
+      </div>
     </div>
   );
+  
+  
 }
 
 export default Home;

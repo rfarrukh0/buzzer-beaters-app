@@ -5,13 +5,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Solanel Medium';
+  src: url('../../assets/fonts/solanel-medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: 'Solanel Black', sans-serif;
 }
 
 .home {
   display: flex;
-  justify-content: center;
+  flex-direction: column; 
   align-items: center;
   height: calc(100vh - 200px); 
   font-family: 'Solanel Black', sans-serif; 
@@ -25,28 +32,27 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 40px;
-  position: absolute;
+  position: relative; 
   overflow: hidden;
-  top: 250px; 
   font-family: 'Solanel Black', sans-serif; 
 }
 
 .counter-content {
   text-align: center;
   color: #ffeb3c; 
-  z-index: 1; 
+  z-index: 2; 
   position: relative;
   font-family: 'Solanel Black', sans-serif; 
 }
 
 .counter-content .count-number {
-  width: 100px;
-  height: 100px;
+  width: 125px;
+  height: 150px;
   background-color: #40044c; 
   display: inline-block;
   padding: 10px 20px;
   border-radius: 10px;
-  font-size: 4rem;
+  font-size: 6rem;
   color: #ffeb3c; 
   position: relative;
   z-index: 2; 
@@ -81,4 +87,72 @@ body {
   100% {
       top: 0%;
   }
+}
+
+.days-counter {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  margin-top: 40px; 
+}
+
+.days-text {
+  text-align: center;
+  margin-right: 10px; 
+}
+
+.days-text p {
+  margin: 0;
+  color: #d4ff00; 
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.8rem; 
+  line-height: 1; 
+}
+
+.days-text .days-count {
+  font-size: 2.5rem; 
+  color: #ff00ff; 
+  font-weight: bold;
+  line-height: 1; 
+}
+.days-without {
+  font-family: 'Solanel Medium', sans-serif;
+  color: white; 
+  font-size: 1.2rem; 
+  margin-left: 10px; 
+  text-transform: uppercase;
+  text-align: left; 
+  line-height: 1.2rem; 
+}
+
+.more-stats-button-container {
+  display: flex;
+  justify-content: center; 
+  width: 100%; 
+  margin-top: 50px; 
+}
+
+.more-stats-button {
+  font-family: 'Solanel Medium', sans-serif;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #18042c; 
+  background-color: #d4ff00; 
+  border: 2px solid #d4ff00; 
+  border-radius: 25px; 
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.3s ease; 
+  text-decoration: none; 
+  margin-top: -30px;
+}
+
+.more-stats-button:hover {
+  background-color: transparent;
+  color: #d4ff00; 
+  border: 2px solid #d4ff00; 
 }
