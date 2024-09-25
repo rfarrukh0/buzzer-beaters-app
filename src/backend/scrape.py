@@ -108,7 +108,7 @@ def scrape_and_store():
     
     # commit
     session.commit()
-    print("Scraping completed. Data inserted into the database.")
+    print("completed & inserted into db)
 
     # print
     for result in results:
@@ -124,5 +124,5 @@ def run_scheduler():
 
 # main
 if __name__ == '__main__':
-    print("Starting the scraping process...")
+    print("starting...")
     scrape_and_store()  
