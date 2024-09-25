@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Buzzer Beaters: NBA Stats Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+**Buzzer Beaters** is a web application that tracks and displays NBA buzzer beater statistics. This app scrapes data from Basketball Reference and provides detailed information about game-winning shots, including player names, teams, game details, and shot distances. The application updates the database every 24 hours with the latest buzzer beater stats.
 
-## Available Scripts
+## Features
+- **Automated Data Scraping**: Scrapes buzzer beater data from Basketball Reference and updates the database every 24 hours.
+- **Comprehensive Data**: Displays statistics like player names, teams, opponents, game details, and shot distances.
+- **Friendly UI**: Provides a clean, interactive UI.
+- **Modular Design**: Built with a modular structure using React and Node.js.
 
-In the project directory, you can run:
+## Project Structure
+```
+BuzzerBeaters/
+├── public/         
+├── src/
+│   ├── assets/            # Fonts & images used
+│   ├── backend/           # The python scraper script 
+│   ├── components/        # Components such as the header
+|   ├── pages/             # All the individual pages
+│   └── App.js             # Main app component
+└── README.md              # Project README file
 
-### `npm start`
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
+- [Node.js](https://nodejs.org/) 
+- A [PostgreSQL](https://www.postgresql.org/) database set up and accessible. (only required for scraping).
+- Chrome WebDriver installed and added to your system PATH (only required for scraping).
+- [Python](https://www.python.org/) and the necessary Python packages installed for scraping.
 
-### `npm test`
+### Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/rfarrukh0/buzzer-beaters-app.git
+   cd buzzer-beaters-app
+   ```
 
-### `npm run build`
+2. **Set Up Environment Variables**:
+   - Create a `.env` file in the root directory with the following variables:
+     ```
+     DATABASE_URL=your_postgresql_database_url
+     ```
+   - Replace `your_postgresql_database_url` with your actual database URL.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Running the Web Application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Install npm Dependencies**:
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Start the Development Server**:
+   ```bash
+   npm start
+   ```
+   - The app will be running at `http://localhost:3000`.
 
-### `npm run eject`
+## Running the Scraper
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Install Required Python Packages**:
+   - Make sure you have Python and the required packages installed.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Run the Scraper Manually**:
+   - Navigate to the backend directory and run the scraper script:
+   ```bash
+   cd src/backend
+   python scrape.py
+   ```
+   - This will scrape data from the Basketball Reference website and store it in the database.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. **Automated Data Scraping**:
+   - The scraper will automatically run every 24 hours to update the database with new buzzer beater information.
